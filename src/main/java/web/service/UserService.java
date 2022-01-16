@@ -8,6 +8,6 @@ public interface UserService {
     void add(User user);
     List<User> index();
     User show(int id);
-    void update(int id, User updatedUser);
+    void update(User updatedUser);
     void delete(int id);
 }

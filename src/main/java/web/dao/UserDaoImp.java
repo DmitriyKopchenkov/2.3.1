@@ -22,7 +22,7 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public List<User> index() {
-        return entityManager.createQuery("from User", User.class).getResultList();
+        return entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
     }
 
     @Override
@@ -32,12 +32,8 @@ public class UserDaoImp implements UserDao {
 
 
     @Override
-    public void update(int id, User updatedUser) {
-        User userToBeUpdated = show(id);
-        userToBeUpdated.setName(updatedUser.getName());
-        userToBeUpdated.setLastName(updatedUser.getLastName());
-        userToBeUpdated.setAge(updatedUser.getAge());
-        entityManager.merge(userToBeUpdated);
+    public void update(User updatedUser) {
+        entityManager.merge(updatedUser);
     }
 
     @Override

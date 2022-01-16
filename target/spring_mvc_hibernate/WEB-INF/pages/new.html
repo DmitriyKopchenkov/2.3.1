@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>New user</title>
+    <title>New User</title>
 </head>
 <body>
+<h2>New User</h2>
+<div>
+    <form th:action="@{/users/add}" th:object="${user}" method="post">
+        <fieldset>
+            <legend>user</legend>
+            <p>
+                <label th:for="name">name</label>
+                <input type="text" name="name" th:id="name" th:value="${user.getName()}">
+            </p>
+            <p>
+                <label th:for="lastName">lastname</label>
+                <input type="text" name="lastName" th:id="lastName" th:value="${user.getLastName()}"><br/>
 
-<form th:method="POST" th:action="@{/users}" th:object="${user}">
-    <label for="name">Enter name:</label>
-    <input type="text" th:field="*{name}" id="name"/>
+            </p>
+            <p>
+                <label th:for="age">age</label>
+                <input type="int" name="age" th:id="age" th:value="${user.getAge()}"><br/>
+            </p>
+        </fieldset>
+        <button type="submit">save</button>
+    </form>
     <br/>
-    <label for="lastName">Enter lastname:</label>
-    <input type="text" th:field="*{lastName}" id="lastName"/>
-    <br/>
-    <label for="age">Enter age:</label>
-    <input type="text" th:field="*{age}" id="age"/>
-    <br/>
-    <input type="submit" value="Create"/>
-</form>
-
+    <form th:action="@{/users}">
+        <button type="submit" class="btn btn-outline-danger">back to list</button>
+    </form>
+</div>
 </body>
 </html>

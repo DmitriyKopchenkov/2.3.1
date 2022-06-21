@@ -11,38 +11,44 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 public class UserServiceImp implements UserService {
 
 
     private UserDao userDao;
     @Autowired
     public UserServiceImp(UserDao userDao) {
+
         this.userDao = userDao;
     }
 
-    @Override
+    @Transactional
     public void add(User user) {
+
         userDao.add(user);
     }
 
-    @Override
+    @Transactional
     public List<User> index() {
+
         return userDao.index();
     }
 
-    @Override
+    @Transactional
     public User show(int id) {
+
         return userDao.show(id);
     }
 
-    @Override
+    @Transactional
     public void update(User updatedUser) {
+
         userDao.update(updatedUser);
     }
 
-    @Override
+    @Transactional
     public void delete(int id) {
+
         userDao.delete(id);
     }
 

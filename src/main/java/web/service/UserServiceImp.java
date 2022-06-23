@@ -22,31 +22,31 @@ public class UserServiceImp implements UserService {
         this.userDao = userDao;
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public void add(User user) {
 
         userDao.add(user);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<User> index() {
 
         return userDao.index();
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public User show(int id) {
 
         return userDao.show(id);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public void update(User updatedUser) {
 
         userDao.update(updatedUser);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public void delete(int id) {
 
         userDao.delete(id);

@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class UserServiceImp implements UserService {
 
 
@@ -26,10 +26,13 @@ public class UserServiceImp implements UserService {
 
         userDao.add(user);
     }
+
+    @Transactional(readOnly = true)
     public List<User> index() {
 
         return userDao.index();
     }
+    @Transactional(readOnly = true)
     public User show(Long id) {
 
         return userDao.show(id);

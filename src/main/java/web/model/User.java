@@ -9,7 +9,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -21,7 +21,7 @@ public class User {
     @Column(name = "age")
     private int age;
 
-    public User(String name, String lastName, int age) {
+    public User(String name, String lastName, Integer age) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
@@ -47,7 +47,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
 
         this.age = age;
     }
